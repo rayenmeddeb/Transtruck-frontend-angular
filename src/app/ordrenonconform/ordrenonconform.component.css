@@ -1,0 +1,108 @@
+/* ordre-form.component.css */
+
+/* Styling for the form container */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  /* Styling for form labels */
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Styling for form inputs */
+  form input,
+  form select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Styling for the submit button */
+  form button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Styling for the submit button on hover */
+  form button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for input fields on focus */
+  form input:focus,
+  form select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Styling for error messages */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Container for each row of three fields */
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  /* Each form field within a row */
+  .form-row > div {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  /* Remove margin from the last field in a row */
+  .form-row > div:last-child {
+    margin-right: 0;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 600px) {
+    .form-row {
+      flex-direction: column;
+    }
+  
+    .form-row > div {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .form-row > div:last-child {
+      margin-bottom: 0;
+    }
+  
+    form button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+    }
+  }
+  
+
+
+.form-row > div:last-child {
+    margin-right: 0;
+  }

@@ -1,0 +1,100 @@
+<mat-toolbar style="background-color: rgb(255, 38, 0);">
+    <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+      <i class="fas fa-bars"  style="font-size: 130%;"></i>
+    </button>
+    <img src="assets\lum-removebg-preview.png" alt="logo d'entreprise " >
+
+
+    <h1>LUMIERE LOGISTIQUE</h1>
+
+    
+
+      <button mat-icon-button aria-label="Notifications"   (click)="toggleNotifications()">
+        <i class="fas fa-bell" [ngStyle]="{ color: hasNewNotifications ? 'white' : 'black' }"
+       
+       ></i>
+      </button>
+      <div
+      *ngIf="showNotifications"
+      class="notification-list"
+      style="
+        position: absolute;
+        right: 1%;
+        top: 48px;
+        background-color: white;
+        border: 1px solid #ccc;
+        width: 400px;
+        max-height: 300px;
+        overflow-y: auto;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+      "
+    >
+    
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li *ngFor="let notification of clients" style="padding: 10px; border-bottom: 1px solid #eee;"   [ngStyle]="{ color: notification.isRead ? 'red' : 'black' }">
+          {{ notification.type}} |  {{ notification.message}} | {{ notification.timestamp}}
+        </li>
+      </ul>
+    </div>
+      <div class="user-info">
+        <img src="path/to/user-image.jpg" alt="User Image" class="user-image">
+        <span class="user-name">John Doe</span>
+      </div>
+  </mat-toolbar>
+  
+  <mat-sidenav-container autosize [ngClass]="!isCollapsed ? 'expanded' : ''">
+    <mat-sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
+      <ul >
+        <a mat-list-item  style="margin-top: 20%;" >
+            <span class="entry">
+              <i class="fas fa-home" ></i>
+              <span >Dashboard</span>
+            </span>
+          </a>
+          <a mat-list-item (click)="toggleSubMenu('orders')">
+            <span class="entry">
+              <i class="fas fa-clipboard-list" style="width: 150%;"></i>
+              <span >Ordres</span>
+              <i *ngIf="showOrdersSubMenu" ></i>
+              <i *ngIf=" !showOrdersSubMenu" ></i>
+            </span>
+          </a>
+          <div *ngIf="showOrdersSubMenu " class="sub-menu">
+            <a mat-list-item    routerLink="/material/ordres" routerLinkActive="active">Suivre d'ordre</a>
+            <a mat-list-item routerLink="/material/nonplannifies" routerLinkActive="active"  >Ajouter ordre</a>
+            <a mat-list-item  routerLink="/material/ajouter" routerLinkActive="active" >Ordres non planifiés</a>
+          </div>
+          <a mat-list-item>
+            <span class="entry" routerLink="/material/clients" routerLinkActive="active">
+              <i class="fas fa-user-friends"></i>
+              <span >Clients</span>
+            </span>
+          </a>
+          <a mat-list-item>
+            <span class="entry" routerLink="/material/articles" routerLinkActive="active">
+              <i class="fas fa-box"></i>
+              <span >Articles</span>
+            </span>
+          </a>
+          <a mat-list-item>
+            <span class="entry"  routerLink="/material/utilisateurs" routerLinkActive="active">
+              <i class="fas fa-users"></i>
+              <span >Users</span>
+            </span>
+          </a>
+          <a mat-list-item>
+            <span class="entry" routerLink="/login" routerLinkActive="active">
+              <i class="fas fa-sign-out-alt"></i>
+              <span >Logout</span>
+            </span>
+          </a>
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content style="margin-top: 2%;">
+
+     <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

@@ -1,0 +1,249 @@
+<!-- ordre-list.component.html -->
+<div class="container" style="margin-right: 30%;">
+    
+    <h2 style="margin-left: 30%;">LISTES DES ORDRES NON CONFIRMES</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Matricule</th>
+          <th>Client</th>
+          <th>Chargement</th>
+          <th>Livraison</th>
+          <th>Code Article</th>
+          <th>Désignation</th>
+         
+          <th>Montant 1</th>
+          <th>Act</th>
+          <th>Frais</th>
+         
+          <th>Date de Saisie</th>
+          <th>Montant</th>
+          <th>Statut</th>
+          <th>Commentaires</th>
+          <th>Tracking</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  id="tr"  *ngFor="let ordre of ordrenconf"    >
+          <td (click)="consulter(ordre)">{{ ordre.id }}</td>
+          <td>{{ ordre.matricule }}</td>
+          <td>{{ ordre.client }}</td>
+          <td>
+            Nom: {{ ordre.chargementNom }}<br>
+            Adresse 1: {{ ordre.chargementAdr1 }}<br>
+            Adresse 2: {{ ordre.chargementAdr2 }}<br>
+            Ville: {{ ordre.chargementVille }}<br>
+            Date: {{ ordre.chargementDate | date }}
+          </td>
+          <td>
+            Nom: {{ ordre.livraisonNom }}<br>
+            Adresse 1: {{ ordre.livraisonAdr1 }}<br>
+            Adresse 2: {{ ordre.livraisonAdr2 }}<br>
+            Ville: {{ ordre.livraisonVille }}<br>
+            Date: {{ ordre.livraisonDate | date }}
+          </td>
+          <td>{{ ordre.codeArticle }}</td>
+          <td>{{ ordre.designation }}</td>
+         
+          <td>{{ ordre.montant1 }}</td>
+          <td>{{ ordre.act }}</td>
+          <td>{{ ordre.frais }}</td>
+        
+          <td>{{ ordre.dateSaisie | date:'short' }}</td>
+          <td>{{ ordre.montant | currency:'EUR' }}</td>
+          <td>{{ ordre.statut }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let commentaire of ordre.commentaires">{{ commentaire }}</li>
+            </ul>
+          </td>
+          <td>{{ ordre.trancking | json }}</td>
+
+          <td> <button style="margin-top: 80%; background-color: yellow;" (click)="confirmer(ordre.id)">CONFIRMER</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+
+<!-- The Modal -->
+<div class="modal" [ngClass]="{'show': isModalOpen}" (click)="closeModal($event)">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Ordre non confirmé</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="matricule">Matricule</label>
+            <input id="matricule" [(ngModel)]="ordre.matricule" name="matricule" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="client">Client</label>
+            <input id="client" [(ngModel)]="ordre.client" name="client" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="chargementNom">Chargement Nom</label>
+            <input id="chargementNom" [(ngModel)]="ordre.chargementNom" name="chargementNom" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="chargementAdr1">Chargement Adresse 1</label>
+            <input id="chargementAdr1" [(ngModel)]="ordre.chargementAdr1" name="chargementAdr1" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="chargementAdr2">Chargement Adresse 2</label>
+            <input id="chargementAdr2" [(ngModel)]="ordre.chargementAdr2" name="chargementAdr2" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="chargementVille">Chargement Ville</label>
+            <input id="chargementVille" [(ngModel)]="ordre.chargementVille" name="chargementVille" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="chargementDate">Chargement Date</label>
+            <input type="date" id="chargementDate" [(ngModel)]="ordre.chargementDate" name="chargementDate" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="livraisonNom">Livraison Nom</label>
+            <input id="livraisonNom" [(ngModel)]="ordre.livraisonNom" name="livraisonNom" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="livraisonAdr1">Livraison Adresse 1</label>
+            <input id="livraisonAdr1" [(ngModel)]="ordre.livraisonAdr1" name="livraisonAdr1" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="livraisonAdr2">Livraison Adresse 2</label>
+            <input id="livraisonAdr2" [(ngModel)]="ordre.livraisonAdr2" name="livraisonAdr2" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="livraisonVille">Livraison Ville</label>
+            <input id="livraisonVille" [(ngModel)]="ordre.livraisonVille" name="livraisonVille" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="livraisonDate">Livraison Date</label>
+            <input type="date" id="livraisonDate" [(ngModel)]="ordre.livraisonDate" name="livraisonDate" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="codeArticle">Code Article</label>
+            <input id="codeArticle" [(ngModel)]="ordre.codeArticle" name="codeArticle" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="designation">Désignation</label>
+            <input id="designation" [(ngModel)]="ordre.designation" name="designation" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="ut">UT</label>
+            <input id="ut" [(ngModel)]="ordre.ut" name="ut" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dev">Dev</label>
+            <input id="dev" [(ngModel)]="ordre.dev" name="dev" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="uf">UF</label>
+            <input id="uf" [(ngModel)]="ordre.uf" name="uf" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="qteTrs">Quantité Transportée</label>
+            <input id="qteTrs" [(ngModel)]="ordre.qteTrs" name="qteTrs" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="qteTaxee">Quantité Taxée</label>
+            <input id="qteTaxee" [(ngModel)]="ordre.qteTaxee" name="qteTaxee" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="prixUnitaire">Prix Unitaire</label>
+            <input id="prixUnitaire" [(ngModel)]="ordre.prixUnitaire" name="prixUnitaire" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="montant1">Montant 1</label>
+            <input id="montant1" [(ngModel)]="ordre.montant1" name="montant1" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="act">Act</label>
+            <input id="act" [(ngModel)]="ordre.act" name="act" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="frais">Frais</label>
+            <input id="frais" [(ngModel)]="ordre.frais" name="frais" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="numeroFR">Numéro FR</label>
+            <input id="numeroFR" [(ngModel)]="ordre.numeroFR" name="numeroFR" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="poids">Poids</label>
+            <input id="poids" [(ngModel)]="ordre.poids" name="poids" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="volume">Volume</label>
+            <input id="volume" [(ngModel)]="ordre.volume" name="volume" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="nombrePalettes">Nombre de Palettes</label>
+            <input id="nombrePalettes" [(ngModel)]="ordre.nombrePalettes" name="nombrePalettes" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombreColis">Nombre de Colis</label>
+            <input id="nombreColis" [(ngModel)]="ordre.nombreColis" name="nombreColis" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="longueur">Longueur</label>
+            <input id="longueur" [(ngModel)]="ordre.longueur" name="longueur" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="reference">Référence</label>
+            <input id="reference" [(ngModel)]="ordre.reference" name="reference" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dateSaisie">Date de Saisie</label>
+            <input type="date" id="dateSaisie" [(ngModel)]="ordre.dateSaisie" name="dateSaisie" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="montant">Montant</label>
+            <input id="montant" [(ngModel)]="ordre.montant" name="montant" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="statut">Statut</label>
+            <select id="statut" [(ngModel)]="ordre.statut" name="statut" class="form-control">
+              <option value="NON_CONFIRME">NON_CONFIRME</option>
+              <option value="CONFIRME">CONFIRME</option>
+              <option value="EN_COURS">EN_COURS</option>
+              <option value="LIVRE">LIVRE</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="commentaires">Commentaires</label>
+            <input id="commentaires" [(ngModel)]="ordre.commentaires" name="commentaires" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="trancking">Tracking</label>
+            <input id="trancking" [(ngModel)]="ordre.trancking" name="trancking" class="form-control" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,44 @@
+/* Modal en pleine largeur */
+.modal-dialog.full-width {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+  
+  .modal-content {
+    border-radius: 0;
+    height: auto; /* Hauteur automatique */
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  /* Grille pour aligner les champs en deux colonnes */
+  .modal-body .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .modal-body .col {
+    flex: 1;
+    padding: 0.5rem;
+  }
+  
+  .modal-body .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .modal-body .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modal-body .form-control {
+    width: 100%; /* Assure que les champs prennent toute la largeur disponible */
+  }
+  
+  @media (max-width: 768px) {
+    .modal-body .col {
+      flex: 100%; /* Sur petits écrans, chaque champ prend toute la largeur */
+    }
+  }
+  

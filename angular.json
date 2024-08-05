@@ -35,8 +35,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
-            ],
+              "src/styles.css"            ],
             "scripts": []
           },
           "configurations": {
@@ -101,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

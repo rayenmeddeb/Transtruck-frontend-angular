@@ -1,0 +1,117 @@
+<div class="c">
+
+  <h5  style="font-size: 180%; padding-bottom: 2%; margin-left: 40%;">
+    <i class="fa fa-list"></i> Liste des Ordres
+  </h5>
+
+    <div class="card-header" style="background-color: rgb(0, 0, 0);">
+      <h5 class="card-title">
+        <i class="fa fa-list"></i> Liste des Ordres
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover custom-width">
+          <thead class="thead-light">
+            <tr>
+              <th>#</th>
+              <th>Numéro d'Ordre</th>
+              <th>Client</th>
+              <th>Statut</th>
+              <th>Départ</th>
+              <th>Chargement</th>
+              <th>Livraison</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ordre of ordres">
+              <td>{{ ordre.id }}</td>
+              <td>{{ ordre.numero }}</td>
+              <td>{{ ordre.client }}</td>
+              <td>{{ ordre.statut }}</td>
+              <td [ngClass]="getCellClass(ordre, 'departure')">
+                {{ ordre.trancking.departureDateTime }}
+              </td>
+              <td [ngClass]="getCellClass(ordre, 'loading')">
+                {{ ordre.trancking.loadingDateTime }}
+              </td>
+              <td [ngClass]="getCellClass(ordre, 'delivery')">
+                {{ ordre.trancking.deliveryDateTime }}
+              </td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Actions">
+                  <button class="btn btn-outline-info btn-sm" (click)="detail(ordre)" routerLink="/material/ordredetail" title="Consulter">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-warning btn-sm" title="Modifier">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button class="btn btn-outline-danger btn-sm" title="Supprimer">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                  <button class="btn btn-outline-secondary btn-sm" title="Carte">
+                    <i class="fa fa-map"></i>
+                  </button>
+                  <button class="btn btn-outline-warning btn-sm"  (click)="openModal()" (click)="getEmail(ordre.client)" title="Modifier l'email">
+                    <i class="fa fa-envelope"></i>
+                  </button>
+                  
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  <!-- Button to open the modal -->
+
+
+<!-- The Modal -->
+<div class="modal" [ngClass]="{'show': isModalOpen}" (click)="closeModal($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Envoyer un Email</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="to">À</label>
+        <input
+          type="email"
+          id="to"
+          name="to"
+          [(ngModel)]="email.to"
+          required
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="subject">Objet</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          [(ngModel)]="email.subject"
+          required
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="body">Message</label>
+        <textarea
+          id="body"
+          name="body"
+          [(ngModel)]="email.body"
+          required
+          class="form-control"
+          rows="6"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+  </div>
+</div>

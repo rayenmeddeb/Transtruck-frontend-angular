@@ -1,0 +1,119 @@
+.table-responsive {
+    max-width: 100%; /* Adjust this percentage to change the table width */
+    margin: 0 auto; /* Centers the table within the card */
+}
+
+.c {
+    margin: 20px auto; /* Adds margin around the card */
+    max-width: 70%; /* Adjusts the maximum width of the card */
+}
+
+.table {
+    width: 80%; /* Ensures the table takes full width of the container */
+}
+
+.card-header {
+ 
+
+
+font-size: x-large;
+    display: flex;
+    align-items: center;
+    background-color: orange;
+    color: white;
+}
+
+.card-title i {
+    margin-right: 10px;
+}
+
+.btn-group .btn {
+    margin-right: 5px;
+}
+
+.custom-width td, .custom-width th {
+    text-align: center;
+  }
+  
+  .gray {
+    background-color: gray;
+    color: white;
+  }
+  
+  .yellow {
+    background-color: yellow;
+  }
+  
+  .green {
+    background-color: green;
+    color: white;
+  }
+  
+
+  /* Modal container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Show modal */
+.modal.show {
+  display: block;
+}

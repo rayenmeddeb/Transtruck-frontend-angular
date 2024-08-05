@@ -1,0 +1,165 @@
+/* Styliser la barre d'outils */
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    background-color: rgb(255, 38, 0); /* Couleur de fond */
+    position: fixed; /* Fixe la barre d'outils en haut */
+    top: 0;
+    left: 0;
+    width: 100%; /* S'étend sur toute la largeur de l'écran */
+    z-index: 1000; /* Assure que la barre d'outils reste au-dessus des autres éléments */
+  }
+  
+  /* Styliser les boutons d'icônes */
+  mat-toolbar button {
+    color: white;
+    margin-left: 8px; /* Espacement entre les boutons */
+  }
+  
+  /* Styliser le logo */
+  mat-toolbar img {
+    height: 40px; /* Ajuster la taille du logo */
+    margin: 0 16px; /* Espacement autour du logo */
+  }
+  
+  /* Styliser le titre */
+  mat-toolbar h1 {
+    flex: 1; /* Occupe l'espace restant entre les éléments */
+    text-align: center;
+    color: white; /* Couleur du texte */
+    margin: 0;
+  }
+  
+  /* Styliser les icônes dans la barre d'outils */
+  mat-toolbar .fa-bell {
+    font-size: 24px; /* Taille de l'icône */
+  }
+  
+  /* Styliser le conteneur des informations utilisateur */
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-left: 16px; /* Espacement avant les informations utilisateur */
+  }
+  
+  /* Styliser l'image de l'utilisateur */
+  .user-info .user-image {
+    width: 40px; /* Taille de l'image */
+    height: 40px; /* Taille de l'image */
+    border-radius: 50%; /* Image ronde */
+    margin-right: 8px; /* Espacement entre l'image et le nom */
+    object-fit: cover; /* Maintient les proportions de l'image */
+  }
+  
+  /* Styliser le nom de l'utilisateur */
+  .user-info .user-name {
+    color: white; /* Couleur du texte */
+    font-size: 16px; /* Taille du texte */
+    font-weight: 500; /* Poids du texte */
+  }
+  /* Styliser le bouton du menu */
+  mat-toolbar button {
+    color: white;
+  }
+  
+  /* Styliser le titre */
+  mat-toolbar h1 {
+    color: white;
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  /* Styliser le conteneur de sidenav */
+  mat-sidenav-container {
+    height: 100vh;
+    background-color: #f4f4f4; /* Couleur de fond du conteneur */
+  }
+  
+  /* Styliser le sidenav */
+  mat-sidenav {
+    width: 250px;
+    background-color: #000000; /* Couleur de fond du sidenav */
+    padding: 16px;
+   
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2); /* Ombre portée */
+  }
+  
+  /* Styliser la liste d'éléments du sidenav */
+  mat-sidenav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Styliser les éléments de la liste */
+  mat-sidenav a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ff5100;
+    padding: 8px 16px;
+    font-weight: 500;
+    border-radius: 4px; /* Coins arrondis */
+    transition: background-color 0.3s; /* Transition pour l'effet de survol */
+  }
+  
+  /* Changer la couleur de fond des éléments au survol */
+  mat-sidenav a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+  }
+  
+  /* Styliser les icônes et le texte dans la liste */
+  .entry {
+   
+    display: flex;
+    align-items: center;
+  }
+  
+  .entry i {
+   
+    margin-right: 5px; /* Espacement entre l'icône et le texte */
+    font-size: 30px; 
+    padding: 5%;/* Taille de l'icône */
+  }
+  
+  .entry span {
+    font-size: 16px; /* Taille du texte */
+  }
+  
+  /* Styliser le contenu principal */
+  mat-sidenav-content {
+    padding: 16px;
+    background-color: #ffffff; /* Couleur de fond du contenu */
+  }
+  
+  /* Styliser le titre du contenu */
+  mat-sidenav-content h2 {
+    font-size: 24px;
+    margin: 0 0 16px;
+  }
+  
+  /* Ajouter des styles pour l'état élargi */
+  .expanded mat-sidenav {
+    width: 80px;
+   margin-top: 2%;
+   
+  }
+ 
+  .expanded ul a {
+    justify-content: center;
+    margin-top: 10%;
+  
+  }
+  
+  .expanded ul a .entry span {
+    display: none;
+  }
+  
+
+  .sub-menu a {
+    padding-left: 40px;
+    font-size: 14px;
+  }

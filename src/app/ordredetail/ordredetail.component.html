@@ -1,0 +1,44 @@
+<button (click)="generatePDF()" style="margin-top: 2%; float: right; margin-right: 5%; font-size: larger;">  <i class="fas fa-file-pdf"></i>Télécharger en PDF</button>
+<div class="ordre-container"  id="htmlData">
+  <h2>Ordre Details</h2>
+  <ul>
+    <li><strong>Matricule:</strong> {{ ordre.matricule }}</li>
+    <li><strong>Client:</strong> {{ ordre.client }}</li>
+    <li><strong>Chargement Nom:</strong> {{ ordre.chargementNom }}</li>
+    <li><strong>Chargement Adresse 1:</strong> {{ ordre.chargementAdr1 }}</li>
+    <li><strong>Chargement Adresse 2:</strong> {{ ordre.chargementAdr2 }}</li>
+    <li><strong>Chargement Ville:</strong> {{ ordre.chargementVille }}</li>
+    <li><strong>Chargement Date:</strong> {{ ordre.chargementDate | date }}</li>
+    <li><strong>Livraison Nom:</strong> {{ ordre.livraisonNom }}</li>
+    <li><strong>Livraison Adresse 1:</strong> {{ ordre.livraisonAdr1 }}</li>
+    <li><strong>Livraison Adresse 2:</strong> {{ ordre.livraisonAdr2 }}</li>
+    <li><strong>Livraison Ville:</strong> {{ ordre.livraisonVille }}</li>
+    <li><strong>Livraison Date:</strong> {{ ordre.livraisonDate | date }}</li>
+    <li><strong>Code Article:</strong> {{ ordre.codeArticle }}</li>
+    <li><strong>Désignation:</strong> {{ ordre.designation }}</li>
+    <li><strong>Unité:</strong> {{ ordre.ut }}</li>
+    <li><strong>Devise:</strong> {{ ordre.dev }}</li>
+    <li><strong>UF:</strong> {{ ordre.uf }}</li>
+    <li><strong>Quantité Transportée:</strong> {{ ordre.qteTrs }}</li>
+    <li><strong>Quantité Taxée:</strong> {{ ordre.qteTaxee }}</li>
+    <li><strong>Prix Unitaire:</strong> {{ ordre.prixUnitaire }}</li>
+    <li><strong>Montant 1:</strong> {{ ordre.montant1 }}</li>
+    <li><strong>Act:</strong> {{ ordre.act }}</li>
+    <li><strong>Frais:</strong> {{ ordre.frais }}</li>
+    <li><strong>Numéro FR:</strong> {{ ordre.numeroFR }}</li>
+    <li><strong>Poids:</strong> {{ ordre.poids }}</li>
+    <li><strong>Volume:</strong> {{ ordre.volume }}</li>
+    <li><strong>Nombre de Palettes:</strong> {{ ordre.nombrePalettes }}</li>
+    <li><strong>Nombre de Colis:</strong> {{ ordre.nombreColis }}</li>
+    <li><strong>Longueur:</strong> {{ ordre.longueur }}</li>
+    <li><strong>Référence:</strong> {{ ordre.reference }}</li>
+    <li><strong>Date de Saisie:</strong> {{ ordre.dateSaisie | date }}</li>
+    <li><strong>Montant:</strong> {{ ordre.montant }}</li>
+    <li><strong>Statut:</strong> {{ ordre.statut }}</li>
+    <li><strong>Commentaires:</strong> 
+        <ul>
+            <li *ngFor="let commentaire of ordre.commentaires">{{ commentaire }}</li>
+        </ul>
+    </li>
+</ul>
+</div>

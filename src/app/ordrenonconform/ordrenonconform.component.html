@@ -1,0 +1,157 @@
+<form (ngSubmit)="ajouter()">
+  <div class="form-row">
+    <div>
+      <label for="client">Client</label>
+      <input type="number" id="client" name="client" [(ngModel)]="ordre.client" required />
+    </div>
+    <div>
+      <label for="chargementNom">Chargement Nom</label>
+      <input type="text" id="chargementNom" name="chargementNom" [(ngModel)]="ordre.chargementNom" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="chargementAdr1">Chargement Adresse 1</label>
+      <input type="text" id="chargementAdr1" name="chargementAdr1" [(ngModel)]="ordre.chargementAdr1" required />
+    </div>
+    <div>
+      <label for="chargementAdr2">Chargement Adresse 2</label>
+      <input type="text" id="chargementAdr2" name="chargementAdr2" [(ngModel)]="ordre.chargementAdr2" />
+    </div>
+    <div>
+      <label for="chargementVille">Chargement Ville</label>
+      <input type="text" id="chargementVille" name="chargementVille" [(ngModel)]="ordre.chargementVille" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="chargementDate">Chargement Date</label>
+      <input type="date" id="chargementDate" name="chargementDate" [(ngModel)]="ordre.chargementDate" required />
+    </div>
+    <div>
+      <label for="livraisonNom">Livraison Nom</label>
+      <input type="text" id="livraisonNom" name="livraisonNom" [(ngModel)]="ordre.livraisonNom" required />
+    </div>
+    <div>
+      <label for="livraisonAdr1">Livraison Adresse 1</label>
+      <input type="text" id="livraisonAdr1" name="livraisonAdr1" [(ngModel)]="ordre.livraisonAdr1" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="livraisonAdr2">Livraison Adresse 2</label>
+      <input type="text" id="livraisonAdr2" name="livraisonAdr2" [(ngModel)]="ordre.livraisonAdr2" />
+    </div>
+    <div>
+      <label for="livraisonVille">Livraison Ville</label>
+      <input type="text" id="livraisonVille" name="livraisonVille" [(ngModel)]="ordre.livraisonVille" required />
+    </div>
+    <div>
+      <label for="livraisonDate">Livraison Date</label>
+      <input type="date" id="livraisonDate" name="livraisonDate" [(ngModel)]="ordre.livraisonDate" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="codeArticle">Code Article</label>
+      <input type="text" id="codeArticle" name="codeArticle" [(ngModel)]="ordre.codeArticle" required />
+    </div>
+    <div>
+      <label for="designation">Désignation</label>
+      <input type="text" id="designation" name="designation" [(ngModel)]="ordre.designation" required />
+    </div>
+    <div>
+      <label for="ut">U.T</label>
+      <input type="text" id="ut" name="ut" [(ngModel)]="ordre.ut" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="dev">Dev</label>
+      <input type="text" id="dev" name="dev" [(ngModel)]="ordre.dev" required />
+    </div>
+    <div>
+      <label for="uf">U.F</label>
+      <input type="text" id="uf" name="uf" [(ngModel)]="ordre.uf" required />
+    </div>
+    <div>
+      <label for="qteTrs">Quantité Trs</label>
+      <input type="number" id="qteTrs" name="qteTrs" [(ngModel)]="ordre.qteTrs" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="qteTaxee">Quantité Taxée</label>
+      <input type="number" id="qteTaxee" name="qteTaxee" [(ngModel)]="ordre.qteTaxee" required />
+    </div>
+    <div>
+      <label for="prixUnitaire">Prix Unitaire</label>
+      <input type="number" id="prixUnitaire" name="prixUnitaire" [(ngModel)]="ordre.prixUnitaire" required />
+    </div>
+    <div>
+      <label for="montant1">Montant</label>
+      <input type="number" id="montant1" name="montant1" [(ngModel)]="ordre.montant1" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="act">Act</label>
+      <input type="text" id="act" name="act" [(ngModel)]="ordre.act" required />
+    </div>
+    <div>
+      <label for="frais">Frais</label>
+      <input type="number" id="frais" name="frais" [(ngModel)]="ordre.frais" required />
+    </div>
+    <div>
+      <label for="numeroFR">Numéro FR</label>
+      <input type="text" id="numeroFR" name="numeroFR" [(ngModel)]="ordre.numeroFR" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="poids">Poids</label>
+      <input type="number" id="poids" name="poids" [(ngModel)]="ordre.poids" required />
+    </div>
+    <div>
+      <label for="volume">Volume</label>
+      <input type="number" id="volume" name="volume" [(ngModel)]="ordre.volume" required />
+    </div>
+    <div>
+      <label for="nombrePalettes">Nombre de Palettes</label>
+      <input type="number" id="nombrePalettes" name="nombrePalettes" [(ngModel)]="ordre.nombrePalettes" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label for="nombreColis">Nombre de Colis</label>
+      <input type="number" id="nombreColis" name="nombreColis" [(ngModel)]="ordre.nombreColis" required />
+    </div>
+    <div>
+      <label for="longueur">Longueur</label>
+      <input type="number" id="longueur" name="longueur" [(ngModel)]="ordre.longueur" required />
+    </div>
+    <div>
+      <label for="reference">Référence</label>
+      <input type="text" id="reference" name="reference" [(ngModel)]="ordre.reference" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div style="display: flex;">
+      <label for="commentaire" style="margin-top: 2%;">Commentaire</label>
+      <textarea id="commentaire" name="commentaire" style="width: 110%; margin-left: 1%;" [(ngModel)]="commentaire"></textarea>
+      <button type="button" style="margin-left: 5%;" (click)="ajoutercommentaire(commentaire)">Ajouter Commentaire</button>
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
